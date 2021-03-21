@@ -11,8 +11,6 @@
   --dark-background: #161b22;
   --gray-line: #dcdde0;
   --text: #666;
-  --text-highlight: #b3b9ff;
-  --title: #2e384d;
   --red: #e83f5d;
   --green: #4cd62b;
   --blue: #5965e0;
@@ -35,6 +33,8 @@
 body {
   background: var(--light-background);
   color: var(--text);
+  height: 100%;
+  position: relative;
 }
 
 body, input, textarea, button {
@@ -50,6 +50,8 @@ a {
   text-decoration: none;
 }
 
+/* HEADER */
+
 header {
   padding: 1.5rem;
   text-align: center;
@@ -58,66 +60,90 @@ header {
 }
 
 header h1 {
-  letter-spacing: 1px;
+  letter-spacing: 0.125rem;
 }
 
 header blockquote {
-  letter-spacing: 3px;
+  letter-spacing: 0.188rem;
   margin: 1.5rem 0;
 }
 
 .container {
-  max-width: 700px;
-  padding: 1rem;
-  display: flex;
-  margin: 0 auto;
-  flex-direction: column;
-  justify-content: center;
-
-  text-align: center;
-}
-
-.container h2 {
-  text-align: center;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding-bottom: 9.375rem;
 }
 
 .form-container {
-  margin-top: 2rem;
+  width: 100%;
+  min-height: 50vh;
+
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
 }
 
-.form-container input {
+.form-container h2 {
+  margin: 20px 0;
+}
+
+.input-container {
+  width: 100%;
+  margin-bottom: 10px;
+
+}
+
+.input-container input {
   width: 15rem;
-  height: 40px;
+  height: 2.5rem;
   padding: 0.5rem;
   border-radius: 5px;
   border: 0;
   margin-right: 5px;
 }
 
-.form-container input:not(:first-child) {
-  margin-top: 20px;
-}
-
-.form-container button {
-  width: 40px;
-  height: 40px;
+.form-container .minus-btn {
+  width: 2.5rem;
+  height: 2.5rem;
   border: 0;
-  background: var(--green);
+  background: var(--red);
   color: var(--white);
   border-radius: 5px;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
+}
+
+button:hover {
+  filter: brightness(0.9);
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  align-items: center;
+  padding: 1rem;
+}
+
+.plus-btn, .submit-btn {
+  width: 11.2rem;
+  height: 2.5rem;
+  margin-right: 1.25rem;
+
+  border: 0;
+  border-radius: 5px;
+  color: var(--white);
+  text-transform: uppercase;
+  background: var(--dark-background);
 }
 
 footer {
-  width: 100%;
-  height: 150px;
-  position: fixed;
-  left: 0;
+  position: absolute;
   bottom: 0;
-
+  width: 100%;
+  height: 9.375rem;
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,4 +154,26 @@ footer {
   color: var(--white);
 
   letter-spacing: 3px;
+}
+
+
+@media (max-width: 425px) {
+  .form-container input {
+    width: 10rem;
+  }
+
+  .btn-container {
+    flex-direction: column;
+  }
+
+  .plus-btn, .submit-btn {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 320px) {
+  .form-container input {
+    width: 8rem;
+  }
 }

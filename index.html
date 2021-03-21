@@ -10,6 +10,10 @@
   <title>Cashback Ninja</title>
 </head>
 <body>
+  <!-- CONTAINER GERAL -->
+  <div class="container">
+
+  <!-- HEADER -->
   <header>
     <h1>🥷 Cashback Ninja</h1>
     <blockquote>
@@ -17,29 +21,40 @@
     </blockquote>
     <h3>Seu saldo atual é: R$00,00</h3>
   </header>
-  <div class="container">
-    <h2>🛎 Cadastre o seu pedido:</h2>
-
+  
+    <!-- CONTAINER 1 -->
     <div class="form-container">
-      <form action="">
-        <input type="text" placeholder="Nome do produto">
-        <input type="text" placeholder="Valor do produto">
-        <button class="plus-btn" type="button">+</button>
+      <h2>🛎 Cadastre o seu pedido:</h2>
 
-        <input type="text" placeholder="Nome do produto">
-        <input type="text" placeholder="Valor do produto">
-        <button class="plus-btn" type="button">+</button>
-
-        <input type="text" placeholder="Nome do produto">
-        <input type="text" placeholder="Valor do produto">
-        <button class="plus-btn" type="button">+</button>
+      <form action="" class="form" data-id="form">
+        <template data-id="template">
+          <div data-id="input" class="input-container">
+            <input type="text" placeholder="Nome do produto">
+            <input type="text" placeholder="Valor do produto">
+            <button data-id="minus-btn" class="minus-btn" type="button">-</button>
+          </div>
+        </template>
       </form>
     </div>
+    
+    <!-- CONTAINER 2 -->
+    <div class="btn-container">
+      <button data-id="plus-btn" type="submit" class="plus-btn">
+        Adicionar produto
+      </button>
 
+      <button data-id="submit-btn" type="submit" class="submit-btn">
+        Finalizar pedido
+      </button>
+
+      <h3>TOTAL: R$00,00</h3>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <h3>made with 💛 by hedênica morais</h3>
+    </footer>
   </div>
-  <footer>
-    <h3>made with 💛 by hedênica morais</h3>
-  </footer>
   <script src="script.js"></script>
 </body>
 </html>
