@@ -130,6 +130,7 @@ button:hover {
   width: 11.2rem;
   height: 2.5rem;
   margin-right: 1.25rem;
+  padding: auto;
 
   border: 0;
   border-radius: 5px;
