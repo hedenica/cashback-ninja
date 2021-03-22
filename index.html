@@ -26,11 +26,11 @@
     <div class="form-container">
       <h2>🛎 Cadastre o seu pedido:</h2>
 
-      <form action="" class="form" data-id="form">
+      <form action="" id="form" class="form" data-id="form">
         <template data-id="template">
           <div data-id="input" class="input-container">
-            <input type="text" placeholder="Nome do produto">
-            <input type="text" placeholder="Valor do produto">
+            <input type="text" name="product" placeholder="Produto">
+            <input data-id="price" name="price" type="number" placeholder="Valor">
             <button data-id="minus-btn" class="minus-btn" type="button">-</button>
           </div>
         </template>
@@ -43,11 +43,11 @@
         Adicionar produto
       </button>
 
-      <button data-id="submit-btn" type="submit" class="submit-btn">
+      <button data-id="submit-btn" form="form" type="submit" class="submit-btn">
         Finalizar pedido
       </button>
 
-      <h3>TOTAL: R$00,00</h3>
+      <h3 data-id="total">TOTAL: R$0,00</h3>
     </div>
 
     <!-- FOOTER -->
