@@ -1,31 +1,30 @@
-const template = document.querySelector('[data-id="template"]')
-const form = document.querySelector('[data-id="form"]')
-const plusBtn = document.querySelector('[data-id="plus-btn"]')
-const submitBtn = document.querySelector('[data-id="submit-btn"]')
-const inputElements = document.getElementsByTagName("input")
-const total = document.querySelector('[data-id="total"]')
+const template = document.querySelector('[data-js="template"]')
+const form = document.querySelector('[data-js="form"]')
+const plusBtn = document.querySelector('[data-js="plus-btn"]')
+const submitBtn = document.querySelector('[data-js="submit-btn"]')
+const total = document.querySelector('[data-js="total"]')
 
 function cloneElement(options) {
   const templateClone = template.content.firstElementChild.cloneNode(true)
 
-  form.appendChild(templateClone)
-
-  const minusBtn = templateClone.querySelector('[data-id="minus-btn"]')
-  const priceInput = templateClone.querySelector('[data-id="price"]')
+  const minusBtn = templateClone.querySelector('[data-js="minus-btn"]')
+  const priceInput = templateClone.querySelector('[data-js="input-price"]')
   
   templateClone.setAttribute('data-id', options.id)
   minusBtn.setAttribute('data-id', options.id)
   plusBtn.setAttribute('data-id', options.id)
-  priceInput.setAttribute('data-id', `price ${options.id}`)
+  templateClone.setAttribute('data-id', options.id)
+  priceInput.setAttribute('data-id', options.id)
 
   minusBtn.addEventListener('click', handleRemoveProduct, false)
-  priceInput.addEventListener('keyup', handlePriceChange, false)
+  priceInput.addEventListener('input', updateTotalPrice, false)
 
+  form.appendChild(templateClone)
 }
 
 plusBtn.addEventListener('click', handleAddProduct, false)
 
-submitBtn.addEventListener('submit', submit, false)
+form.addEventListener('submit', submit, false)
 
 function handleAddProduct(e) {
   const elementId = Number(e.currentTarget.getAttribute('data-id'))
@@ -33,41 +32,46 @@ function handleAddProduct(e) {
   cloneElement({ id: elementId + 1 })
 }
 
-function handlePriceChange() {
-  let prices = []
+function updateTotalPrice() {
+  const inputElements = document.querySelectorAll('[data-js="input-price"]')
+
+  const arrayElements = [...inputElements]
 
   if (inputElements.length === 0) {
-    total.innerHTML = 'TOTAL: R$0,00'
+    total.innerText = formatCurrency(0)
   }
+  
+  const totalValue = arrayElements.reduce((acc, input) => acc + Number(input.value), 0)
 
-  for (var i = 0; i < inputElements.length; i++) {
-    if (i % 2 !== 0) {
-      prices.push(Number(inputElements[i].value))
+  total.innerText = formatCurrency(totalValue)
+}
 
-      const filteredPrices = prices.filter(Number)
-
-      const totalValue = filteredPrices.reduce((acc, current) => acc + current, 0)
-
-      total.innerText = `TOTAL: ${new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-      }).format(totalValue)
-        }`
-    }
-
-  }
+function formatCurrency(value) {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(value)
 }
 
 function handleRemoveProduct(e) {
-  const inputContainer = e.path[1]
+  const dataId = e.target.dataset.id
+  
+  const inputContainer = document.querySelector(`[data-js="input-container"][data-id="${dataId}"]`)
 
   inputContainer.remove()
 
-  handlePriceChange()
+  updateTotalPrice()
 }
 
-function submit() {
- // TODO: LISTAR DADOS DO FORMULÁRIO
+function submit(e) {
+  // TODO: LISTAR DADOS DO FORMULÁRIO
+  e.preventDefault();
+
+  console.log(e.target)
+
+  // querySelector em todas as divs do form.
+  // itera as divs, e gerar um novo array [for, map] de objetos
+  // estrutura [{ name: string, price: number}]
 }
 
 function main() {
