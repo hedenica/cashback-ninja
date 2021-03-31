@@ -88,7 +88,7 @@ function submit(e) {
 
   const formData = arrayElements.map((div) => {
     const product = div.querySelector('[data-js="input-product"]').value
-    const price = div.querySelector('[data-js="input-price"]').value
+    const price = cleanValue(div.querySelector('[data-js="input-price"]').value)
 
     return { 
       product,
@@ -104,6 +104,7 @@ function submit(e) {
     }
   ]
 
+  console.log(order)
   return order
 }
 
