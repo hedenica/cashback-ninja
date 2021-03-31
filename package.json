@@ -1,0 +1,11 @@
+{
+  "name": "cashback-ninja",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/hedenica/cashback-ninja.git",
+  "author": "hedenicapedrosa <hedenica@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "0.21.1"
+  }
+}
