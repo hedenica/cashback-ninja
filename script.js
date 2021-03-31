@@ -3,7 +3,8 @@ const form = document.querySelector('[data-js="form"]')
 const plusBtn = document.querySelector('[data-js="plus-btn"]')
 const submitBtn = document.querySelector('[data-js="submit-btn"]')
 const total = document.querySelector('[data-js="total"]')
-const priceInput = document.querySelector('[data-js="input-price"]')
+
+const baseUrl = 'https://606467ecf0919700177859ac.mockapi.io/api'
 
 function cloneElement(options) {
   const templateClone = template.content.firstElementChild.cloneNode(true)
@@ -79,7 +80,7 @@ function handleRemoveProduct(e) {
   updateTotalPrice()
 }
 
-function submit(e) {
+async function submit(e) {
   e.preventDefault();
   
   const inputContainer = document.querySelectorAll('[data-js="input-container"]')
@@ -87,24 +88,23 @@ function submit(e) {
   const arrayElements = [...inputContainer]
 
   const formData = arrayElements.map((div) => {
-    const product = div.querySelector('[data-js="input-product"]').value
+    const name = div.querySelector('[data-js="input-product"]').value
     const price = cleanValue(div.querySelector('[data-js="input-price"]').value)
 
     return { 
-      product,
+      name,
       price,
     }
 
   })
   
-  const order = [
-    {
-      products: formData,
-      total: cleanValue(total.innerText)
-    }
-  ]
+  const order = {
+    products: formData,
+    total: cleanValue(total.innerText)
+  }
+  
+  await axios.post(`${baseUrl}/orders`, order )
 
-  console.log(order)
   return order
 }
 
