@@ -95,17 +95,30 @@ async function submit(e) {
       name,
       price,
     }
-
   })
   
   const order = {
     products: formData,
     total: cleanValue(total.innerText)
   }
-  
-  await axios.post(`${baseUrl}/orders`, order )
+    
+  try {
+    if(order.products[0].name && order.products[0].price !== 0) {
+      await axios.post(`${baseUrl}/orders`, order )
+      redirect()
+    } else {
+      throw Error()
+    }
+
+  } catch(error) {
+    alert('❌ Todos os campos devem ser preenchidos!')
+  }
 
   return order
+}
+
+function redirect() {
+  location.href = '../index.html'
 }
 
 function main() {
@@ -116,8 +129,8 @@ main()
 
 // TODO: Pesquisar sobre Document.Fragment 📝 
 
-//  TODO: ROTA HOME - LISTAGEM DAS COMPRAS
+/////  TODO: ROTA HOME - LISTAGEM DAS COMPRAS
 /////  TODO: ADICIONAR VALOR TOTAL NO OBJETO PEDIDOS
 /////* INFO: { products: [{ ... }], total: number}
 //  TODO: ROTA DE DETALHES DO PEDIDO /COMPRAS/:ID
-//  TODO: A ROTA DE CADASTRO -> FORMULÁRIO
+/////  TODO: A ROTA DE CADASTRO -> FORMULÁRIO

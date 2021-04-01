@@ -50,9 +50,12 @@ a {
   text-decoration: none;
 }
 
+/* SHARED STYLES */
+
 /* HEADER */
 
 header {
+  min-height: 180px;
   padding: 1.5rem;
   text-align: center;
   background: var(--dark-background);
@@ -68,6 +71,9 @@ header blockquote {
   margin: 1.5rem 0;
 }
 
+
+/* CONTAINER */
+
 .container {
   position: relative;
   min-height: 100vh;
@@ -75,69 +81,7 @@ header blockquote {
   padding-bottom: 9.375rem;
 }
 
-.form-container {
-  width: 100%;
-  min-height: 50vh;
-
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  text-align: center;
-}
-
-.form-container h2 {
-  margin: 20px 0;
-}
-
-.input-container {
-  width: 100%;
-  margin-bottom: 10px;
-
-}
-
-.input-container input {
-  width: 15rem;
-  height: 2.5rem;
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: 0;
-  margin-right: 5px;
-}
-
-.form-container .minus-btn {
-  width: 2.5rem;
-  height: 2.5rem;
-  border: 0;
-  background: var(--red);
-  color: var(--white);
-  border-radius: 5px;
-  font-size: 1.25rem;
-}
-
-button:hover {
-  filter: brightness(0.9);
-}
-
-.btn-container {
-  display: flex;
-  justify-content: center;
-  margin: 30px 0;
-  align-items: center;
-  padding: 1rem;
-}
-
-.plus-btn, .submit-btn {
-  width: 11.2rem;
-  height: 2.5rem;
-  margin-right: 1.25rem;
-  padding: auto;
-
-  border: 0;
-  border-radius: 5px;
-  color: var(--white);
-  text-transform: uppercase;
-  background: var(--dark-background);
-}
+/* FOOTER */
 
 footer {
   position: absolute;
@@ -155,26 +99,4 @@ footer {
   color: var(--white);
 
   letter-spacing: 3px;
-}
-
-
-@media (max-width: 425px) {
-  .form-container input {
-    width: 10rem;
-  }
-
-  .btn-container {
-    flex-direction: column;
-  }
-
-  .plus-btn, .submit-btn {
-    width: 80%;
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width: 320px) {
-  .form-container input {
-    width: 8rem;
-  }
 }

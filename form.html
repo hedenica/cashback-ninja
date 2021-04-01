@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="./styles/form.css">
+  <title>Cashback Ninja | Cadastro </title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>🥷 Cashback Ninja</h1>
+      <blockquote>
+        "O melhor cashback da internet"
+      </blockquote>
+    </header>
+
+    <div class="form-container">
+      <h2>🛎 Cadastre o seu pedido:</h2>
+      <form action="" id="form" class="form" data-js="form">
+        <template data-js="template">
+          <div data-js="input-container" class="input-container">
+            <input data-js="input-product" type="text" id="product" name="product" placeholder="Produto">
+            <input data-js="input-price" id="price" name="price" type="text" placeholder="R$ 0,00">
+            <button data-js="minus-btn" class="minus-btn" type="button">
+              -
+            </button>
+          </div>
+        </template>
+      </form>
+    </div>
+
+    <div class="btn-container">
+      <button data-js="plus-btn" type="button" class="plus-btn">
+        Adicionar produto
+      </button>
+
+      <button data-js="submit-btn" form="form" type="submit" class="submit-btn">
+        Finalizar pedido
+      </button>
+
+      <h3>
+        TOTAL:
+        <span data-js="total">R$ 0,00</span>
+      </h3>
+    </div>
+
+    <footer>
+      <h3>made with 💛 by hedênica morais</h3>
+    </footer>
+  </div>
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
+  <script src="./scripts/form.js"></script>
+</body>
+</html>
