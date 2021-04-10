@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="../../global.css">
+  <link rel="stylesheet" href="../../styles/home.css">
   <title>Cashback Ninja | Inicio </title>
 </head>
 
@@ -18,20 +19,41 @@
       <blockquote>
         "O melhor cashback da internet"
       </blockquote>
-      <h3>Seu saldo atual é: R$00,00</h3>
+      <h3>Meu saldo atual é: R$00,00</h3>
     </header>
 
     <div class="home-container">
-      <h1>Work in Progress</h1>
-    </div>
+      <h2>🛍 Meus Pedidos</h2>
 
-    <div class="btn-container">
-      <button data-js="submit-btn" form="form" type="button" class="submit-btn">
-        <a href="/form.html">
+      <table>
+        <thead>
+          <tr>
+            <th>Nº</th>
+            <th>Produto</th>
+            <th>Preço</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Televisão</td>
+            <td>R$ 300,00</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Computador</td>
+            <td>R$ 600,00</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button form="form" type="button" class="new-order-btn">
+        <a href="../form">
           Cadastrar nova compra
         </a>
       </button>
     </div>
+
 
     <footer>
       <h3>made with 💛 by hedênica morais</h3>

@@ -43,6 +43,11 @@ body, input, textarea, button {
 
 button {
   cursor: pointer;
+  transition: filter 0.2s;
+}
+
+button:hover {
+  filter: brightness(0.8)
 }
 
 a {

@@ -1,0 +1,44 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-container h2 {
+  margin: 1.25rem auto;
+}
+
+table {
+  width: 80%;
+  border-spacing: 0 0.5rem;
+  background: var(--dark-background);
+  border-radius: 8px;
+  color: var(--white);
+}
+
+table th {
+  font-weight: bolder;
+  padding: 1rem 2rem;
+  text-align: left;
+  border-bottom: 1px solid var(--white);
+}
+
+table td {
+  padding: 1rem 2rem;
+  border: 0;
+  color: var(--white);
+}
+
+.new-order-btn {
+  width: 16rem;
+  height: 2.5rem;
+  margin: 1.25rem auto;
+  padding: auto;
+
+  border: 0;
+  border-radius: 5px;
+  color: var(--white);
+  text-transform: uppercase;
+  background: var(--dark-background);
+}
