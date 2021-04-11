@@ -19,7 +19,10 @@
       <blockquote>
         "O melhor cashback da internet"
       </blockquote>
-      <h3>Meu saldo atual é: R$00,00</h3>
+      <h3>
+        Total em compras:
+        <span data-js="total">R$ 0,00</span>
+      </h3>
     </header>
 
     <div class="home-container">
@@ -28,17 +31,12 @@
       <table>
         <thead>
           <tr>
-            <th>Nº</th>
+            <th>Nº Pedido</th>
             <th>Produto</th>
             <th>Preço</th>
           </tr>
         </thead>
-        <tbody>
-          <tr data-js="table-row">
-            <td data-js="td-number"></td>
-            <td data-js="td-product"></td>
-            <td data-js="td-price"></td>
-          </tr>
+        <tbody data-js="table-body">
         </tbody>
       </table>
 
@@ -54,7 +52,6 @@
       <h3>made with 💛 by hedênica morais</h3>
     </footer>
   </div>
-  <script src="../../node_modules/axios/dist/axios.min.js"></script>
   <script src="./home.js"></script>
 </body>
 

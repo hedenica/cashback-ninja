@@ -118,7 +118,7 @@ async function submit(e) {
 }
 
 function redirect() {
-  location.href = '../index.html'
+  location.href = '../home/index.html'
 }
 
 function main() {
@@ -126,11 +126,3 @@ function main() {
 }
 
 main()
-
-// TODO: Pesquisar sobre Document.Fragment 📝 
-
-/////  TODO: ROTA HOME - LISTAGEM DAS COMPRAS
-/////  TODO: ADICIONAR VALOR TOTAL NO OBJETO PEDIDOS
-/////* INFO: { products: [{ ... }], total: number}
-//  TODO: ROTA DE DETALHES DO PEDIDO /COMPRAS/:ID
-/////  TODO: A ROTA DE CADASTRO -> FORMULÁRIO
