@@ -4,7 +4,7 @@ const plusBtn = document.querySelector('[data-js="plus-btn"]')
 const submitBtn = document.querySelector('[data-js="submit-btn"]')
 const total = document.querySelector('[data-js="total"]')
 
-const baseUrl = 'https://606467ecf0919700177859ac.mockapi.io/api'
+const url_to_fetch = 'https://606467ecf0919700177859ac.mockapi.io/api/orders'
 
 function cloneElement(options) {
   const templateClone = template.content.firstElementChild.cloneNode(true)
@@ -102,16 +102,18 @@ async function submit(e) {
     total: cleanValue(total.innerText)
   }
     
-  try {
-    if(order.products[0].name && order.products[0].price !== 0) {
-      await axios.post(`${baseUrl}/orders`, order )
-      redirect()
-    } else {
-      throw Error()
-    }
-
-  } catch(error) {
-    alert('❌ Todos os campos devem ser preenchidos!')
+  if (order.products[0].name && order.products[0].price !== 0) {
+    await fetch(url_to_fetch, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(order)
+    }).then(response => response.json())
+      .then(() => redirect())
+      .catch(() => {
+        alert('❌ Todos os campos devem ser preenchidos!')
+      })
+  } else {
+    throw Error()
   }
 
   return order
